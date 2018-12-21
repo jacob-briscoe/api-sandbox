@@ -61,3 +61,6 @@ typings/
 .next
 
 bin
+
+# don't ever commit passwords into github
+infrastructure/config/app.js
