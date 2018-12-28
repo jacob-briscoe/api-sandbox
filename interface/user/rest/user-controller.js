@@ -1,9 +1,7 @@
 const logger = require('../../../infrastructure/logger');
-const UserRepository = require('../../../infrastructure/persistence/psql/userRepository');
+const UserRepository = require('../../../domain/model/userRepository');
 
 module.exports.authenticate = async (req, res, next) => {
-    logger.info('Attempting to authenticate user.');
-
     let user = await UserRepository.find(req.body.username);
 
     if(user === null)

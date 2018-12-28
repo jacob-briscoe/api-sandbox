@@ -4,7 +4,7 @@ module.exports = {
 
     find: (username) => {
         return database.oneOrNone({
-            text: 'select * from todo.users where username = $1',
+            text: 'select * from todo.users where username = lower($1)',
             values: [username]
         });
     }
