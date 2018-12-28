@@ -1,7 +1,6 @@
-const logger = require('../../../infrastructure/logger');
 const UserRepository = require('../../../domain/model/userRepository');
 
-module.exports.authenticate = async (req, res, next) => {
+module.exports.authenticate = async (req, res) => {
     let user = await UserRepository.find(req.body.username);
 
     if(user === null)
