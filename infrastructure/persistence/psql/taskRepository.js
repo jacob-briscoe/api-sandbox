@@ -13,3 +13,24 @@ module.exports.create = (task) => {
         values: [task.userId, task.detail]
     });
 };
+
+module.exports.findOne = (taskId) => {
+    return database.one({
+        text: 'select * from user_tasks where id = $1',
+        values: [taskId]
+    });
+};
+
+module.exports.update = (task) => {
+    return database.none({
+        text: 'update tasks set detail = $1, modified = timezone(\'UTC\'::text, now()) where id = $2',
+        values: [task.detail, task.id]
+    });
+};
+
+module.exports.delete = (taskId) => {
+    return database.none({
+        text: 'delete from tasks where id = $1',
+        values: [taskId]
+    });
+};

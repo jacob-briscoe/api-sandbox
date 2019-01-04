@@ -12,5 +12,25 @@ module.exports.createUserTask = async (req, res) => {
     };
 
     let taskId = await TaskRepository.create(task);
-    res.status(200).send(JSON.stringify(taskId));
+    res.status(201).send(JSON.stringify(taskId));
+};
+
+module.exports.getUserTask = async (req, res) => {
+    let task = await TaskRepository.findOne(req.params.taskId);
+    res.status(200).send(JSON.stringify(task));
+};
+
+module.exports.updateUserTask = async (req, res) => {
+    const task = {
+        id: req.params.taskId,
+        detail: req.body.detail
+    };
+
+    await TaskRepository.update(task);
+    res.status(204).end();
+};
+
+module.exports.deleteUserTask = async (req, res) => {
+    await TaskRepository.delete(req.params.taskId);
+    res.status(204).end();
 };
