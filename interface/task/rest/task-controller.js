@@ -8,7 +8,7 @@ module.exports.allUserTasks = async (req, res) => {
 module.exports.createUserTask = async (req, res) => {
     const task = {
         userId: req.params.userId,
-        detail: req.body.detail
+        detail: req.body
     };
 
     let taskId = await TaskRepository.create(task);
@@ -23,7 +23,7 @@ module.exports.getUserTask = async (req, res) => {
 module.exports.updateUserTask = async (req, res) => {
     const task = {
         id: req.params.taskId,
-        detail: req.body.detail
+        detail: req.body
     };
 
     await TaskRepository.update(task);

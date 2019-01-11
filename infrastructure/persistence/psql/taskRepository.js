@@ -15,7 +15,7 @@ module.exports.create = (task) => {
 };
 
 module.exports.findOne = (taskId) => {
-    return database.one({
+    return database.oneOrNone({
         text: 'select * from user_tasks where id = $1',
         values: [taskId]
     });
