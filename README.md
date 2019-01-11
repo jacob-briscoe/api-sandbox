@@ -4,6 +4,7 @@
 To run locally (if you have already completed the Application Setup steps): 
 1. Start `docker run --name sandbox-postgres -e POSTGRES_PASSWORD=[PASSWORD] -d -p 5432:5432 postgres` or Restart your database: `docker container restart sandbox-postgres`
 1. Run the application `npm start`
+1. View API docs: [http://localhost:3000/api-docs]
 
 Run tests:
 * `npm test` or...
