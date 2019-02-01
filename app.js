@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const webLogger = require('morgan');
 const router = require('./interface/routes');
+var validator = require('express-validator');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
+app.use(validator());
 router.install(app);
 
 logger.info('Successfully started API.');
